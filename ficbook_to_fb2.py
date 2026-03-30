@@ -376,7 +376,7 @@ class App:
             self.root.after(0, lambda: messagebox.showinfo("Готово", f"FB2 сохранен:\n{target}"))
         except Exception as exc:
             self.logger.exception("Ошибка парсинга: %s", exc)
-            self.root.after(0, lambda: messagebox.showerror("Ошибка", str(exc)))
+            self.root.after(0, lambda e=exc: messagebox.showerror("Ошибка", str(e)))
         finally:
             self.root.after(0, lambda: self.parse_btn.configure(state="normal"))
 
